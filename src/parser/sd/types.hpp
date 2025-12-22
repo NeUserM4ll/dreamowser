@@ -1,0 +1,3 @@
+enum class TagType{
+    DOCTYPE,START_TAG,END_TAG,TEXT,ATRIBUTE
+};
