@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <fstream>
-#include <sstream>
+#include "ParseCss.hpp"
 
 class ruleCss{
     public:
@@ -11,15 +7,15 @@ class ruleCss{
     std::map<std::string,std::string> atributes; 
 
 };
-class parseCss{
-    public:
-        
-        std::map<std::string,std::map<std::string,std::string>> selector;
-    void parse(std::string cssText){
+
+
+
+void ParseCss::parser_Css(std::string cssText){
         std::string selectBuffer;
         std::string buffer;
         std::string atributes1 ;
         unsigned int stage = 0;
+        
         for (char c :cssText){
 
             if (c=='{'){
@@ -41,11 +37,11 @@ class parseCss{
             }
             
         }
-    }
-    void BID(){
+}
+void ParseCss::BID(){
         std::cout << selector[".tag"]["background-color"];
     }
-};
+
 std::string readFile(const std::string& fileName) {
     std::ifstream file(fileName);
     if (!file.is_open()) {
@@ -59,9 +55,9 @@ std::string readFile(const std::string& fileName) {
 
 int main(int argc, char* argv[]){
     
-    parseCss n ;
+    ParseCss n ;
     std::string mm = readFile(argv[1]);
-    n.parse(mm);
+    n.parser_Css(mm);
     n.BID();
     
     return 0;
